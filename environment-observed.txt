@@ -1,0 +1,11 @@
+# Scientific environment observed during presentation checks; not a historical lockfile.
+Python 3.13.0
+numpy==2.4.1
+scipy==1.17.0
+pandas==2.2.3
+matplotlib==3.10.8
+seaborn==0.13.2
+scikit-learn==1.8.0
+shap==0.51.0
+autograd==1.8.0
+tqdm==4.67.1
