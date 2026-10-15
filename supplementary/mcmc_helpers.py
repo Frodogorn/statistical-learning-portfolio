@@ -1,6 +1,7 @@
 """Completed helpers from the supplied TP6 MCMC practical.
 
-The MALA, leapfrog and HMC templates are unfinished and are not exported.
+The leapfrog integrator, HMC loop and two-dimensional MALA, completed in a later copy
+of the practical, are presented in notebooks/07_hamiltonian_monte_carlo.ipynb.
 See docs/attribution.md for academic provenance.
 """
 

@@ -25,6 +25,10 @@ The Gaussian rare-event examples illustrate the dependence of an estimator on th
 
 The Gaussian examples display marginal histograms and acceptance rates. They do not report effective sample sizes or multi-chain convergence diagnostics. Direct-density arithmetic can underflow. The supplementary posterior code uses large sample arrays and has not been promoted as a verified performance comparison. Its inconsistent historical outputs are omitted, and the local proposal's actual `1/sqrt(m)` scale is documented.
 
+## HMC
+
+The HMC notebook uses a fixed integration time, an identity mass matrix and single chains of 500 iterations. High acceptance rates at small step sizes reflect the accuracy of the leapfrog integrator on these smooth targets, not the quality of mixing: on the two-mode mixture, a chain can stay in one mode. There are no effective-sample-size or multi-chain diagnostics. The outputs come from one re-execution with `np.random.seed(0)`; other seeds give different chains.
+
 ## EM
 
 The implemented univariate model has separate component variances, while some supplied theoretical notes discuss a shared covariance. The portfolio describes the implemented model. The algorithm uses direct densities and a fixed iteration budget, with no variance floor or log-sum-exp stabilization. Initialization experiments are informative single runs, not guarantees of global optimization. The sample-size experiment draws fresh data at each size and does not estimate expected performance.

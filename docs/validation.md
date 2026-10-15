@@ -1,6 +1,6 @@
 # Validation record
 
-Presentation checks performed on 14 September 2026. Historical notebook outputs were preserved, not replaced by the checks below.
+Presentation checks performed on 14 September 2026; the HMC notebook was added and checked on 15 October 2026. Historical notebook outputs were preserved, not replaced by the checks below.
 
 ## Executed checks
 
@@ -12,6 +12,7 @@ Presentation checks performed on 14 September 2026. Historical notebook outputs 
 | Gaussian Bayes | 3 | All selected cells | PASS |
 | Metropolis and MALA | 9 | All selected cells, including posterior code, with bounded sizes in memory | PASS |
 | Expectation maximization | 14 | All selected cells, with bounded sizes in memory | PASS |
+| Hamiltonian Monte Carlo | 12 | Full re-execution in a fresh kernel (these are the published outputs), then the bounded smoke check | PASS |
 
 Air Quality reproduces the 5,552-by-8 training matrix and 1,389-by-8 evaluation matrix. Its recomputed linear scores are finite. A bounded EM run has finite, non-decreasing log-likelihood within numerical tolerance. These checks verify execution and limited invariants, not the validity of every scientific interpretation.
 

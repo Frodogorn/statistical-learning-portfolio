@@ -2,7 +2,7 @@
 
 **Gabriel Trabelsi** · M2 IASD · Université Paris Dauphine-PSL
 
-A selection of academic projects connecting statistical methods, Python implementations and experimental analysis: learning from environmental sensors, simulating rare events and fitting latent-variable models.
+A selection of academic projects connecting statistical methods, Python implementations and experimental analysis: learning from environmental sensors, simulating rare events, sampling with Hamiltonian Monte Carlo and fitting latent-variable models.
 
 **[Read the illustrated portfolio (PDF)](report/portfolio.pdf)** · [Read it on GitHub](report/portfolio.md) · [Reproduce the notebooks](docs/reproducibility.md)
 
@@ -14,6 +14,7 @@ A selection of academic projects connecting statistical methods, Python implemen
 | **Monte-Carlo simulation** | Inverse transforms, Box-Muller, Marsaglia and correlated Gaussian sampling | [Notebook](notebooks/02_random_variable_simulation.ipynb) |
 | **Rare-event estimation** | Direct Monte-Carlo versus importance sampling; Gaussian and Pareto tails | [Notebook](notebooks/03_rare_event_estimation.ipynb) |
 | **Bayesian inference** | Gaussian conjugacy, random-walk Metropolis and MALA | [Gaussian update](notebooks/04_gaussian_bayes.ipynb) · [MCMC](notebooks/05_metropolis_and_mala.ipynb) |
+| **Hamiltonian Monte Carlo** | Leapfrog integration, HMC and MALA in two dimensions, trajectory length and step size, comparison with random-walk Metropolis on a two-mode mixture | [Notebook](notebooks/07_hamiltonian_monte_carlo.ipynb) |
 | **Latent-variable estimation** | Gaussian-mixture EM, initialization, iteration budget and misspecification | [Notebook](notebooks/06_expectation_maximization.ipynb) |
 
 ## From sensor data to model analysis
@@ -26,7 +27,7 @@ The original study uses 6,941 complete observations and a chronological 80/20 sp
 
 ## From sampling to statistical inference
 
-The rare-event notebook illustrates why direct sampling can miss a Gaussian tail with probability around 10⁻⁹, and how a shifted proposal changes the estimate. A Pareto example shows the instability of poorly matched importance weights. The EM notebook follows fitted parameters and likelihood across several existing experiments.
+The rare-event notebook illustrates why direct sampling can miss a Gaussian tail with probability around 10⁻⁹, and how a shifted proposal changes the estimate. A Pareto example shows the instability of poorly matched importance weights. The HMC notebook implements a leapfrog integrator and compares HMC, MALA and random-walk Metropolis on a two-mode Gaussian mixture. The EM notebook follows fitted parameters and likelihood across several existing experiments.
 
 ![EM parameter and likelihood trajectories from the original notebook](assets/em_convergence.png)
 
@@ -34,7 +35,7 @@ The rare-event notebook illustrates why direct sampling can miss a Gaussian tail
 
 These projects were developed as coursework and practical assignments. This repository organizes the completed implementations and existing experiments into a coherent selection. Course scaffolding and data sources are credited in [attribution](docs/attribution.md).
 
-The report and notebook introductions are in English; original implementation comments and figure labels are retained where useful. Saved figures are from the original work. No new experimental results are claimed for this presentation edition.
+The report and notebook introductions are in English; original implementation comments and figure labels are retained where useful. Saved figures are from the original work, except in the HMC notebook, which was re-executed unchanged because its saved outputs did not all match the final code. No new algorithms or experiments are claimed for this presentation edition.
 
 ## Run locally
 
@@ -48,7 +49,7 @@ jupyter lab
 Open the numbered notebooks in `notebooks/`. The CSV is provided in `data/`. Computational cost varies substantially: the complete Air Quality search and some Monte-Carlo cells are intentionally larger experiments. See [reproduction details](docs/reproducibility.md).
 
 ```text
-notebooks/      Six curated notebooks, with original saved outputs
+notebooks/      Seven curated notebooks, with saved outputs
 report/         Illustrated PDF and GitHub-readable report
 assets/         Selected original figures
 data/           Air Quality CSV and source attribution
