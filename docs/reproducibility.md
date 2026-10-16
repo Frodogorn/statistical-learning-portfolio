@@ -29,7 +29,7 @@ Open each notebook with a fresh Python kernel and execute cells in order. Air Qu
 
 ## Saved outputs and randomness
 
-The displayed outputs and exported figures come from the original notebooks, except the HMC notebook, re-executed with `np.random.seed(0)` (see its header). Their historical execution counters were cleared because they do not certify sequential execution. The original stochastic notebooks do not consistently fix random seeds. Re-execution can produce different figures, timings and estimates. The MLP examples preserve their original `random_state=42`.
+The displayed outputs and exported figures come from the original notebooks, except the HMC and variational-inference notebooks, re-executed with a fixed seed (see their headers). Their historical execution counters were cleared because they do not certify sequential execution. The original stochastic notebooks do not consistently fix random seeds. Re-execution can produce different figures, timings and estimates. The MLP examples preserve their original `random_state=42`.
 
 Validation runs do not overwrite the saved experimental outputs. See [validation record](validation.md) for the exact checks performed.
 
@@ -44,6 +44,7 @@ Validation runs do not overwrite the saved experimental outputs. See [validation
 | Metropolis/MALA | Gaussian examples are small; the posterior section combines 50,000 observations and thousands of proposals and can be memory-intensive. |
 | EM | Several small, repeated mixture fits. |
 | HMC | Fourteen 500-iteration HMC chains plus Metropolis and MALA baselines, with automatic differentiation; about one to two minutes on a laptop. |
+| Variational inference | Eleven CAVI runs on 1,000 points and a 30,000-step Metropolis chain; about one minute. |
 
 You can reduce sample sizes for a quick local exploration, but such a run will not reproduce the displayed historical values. The provided smoke check does exactly this in memory and reports its scope explicitly.
 

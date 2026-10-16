@@ -29,6 +29,10 @@ The Gaussian examples display marginal histograms and acceptance rates. They do 
 
 The HMC notebook uses a fixed integration time, an identity mass matrix and single chains of 500 iterations. High acceptance rates at small step sizes reflect the accuracy of the leapfrog integrator on these smooth targets, not the quality of mixing: on the two-mode mixture, a chain can stay in one mode. There are no effective-sample-size or multi-chain diagnostics. The outputs come from one re-execution with `np.random.seed(0)`; other seeds give different chains.
 
+## Variational inference
+
+The CAVI notebook uses one simulated data set, with $K$ and the component variance known. The Metropolis reference is a single chain started at the CAVI solution. For the two overlapping components, its marginals mix label swapping with genuine posterior uncertainty, so the isolated component gives the cleanest comparison of variances. The ELBO is computed up to additive constants, and the outputs come from one re-execution with seed 0.
+
 ## EM
 
 The implemented univariate model has separate component variances, while some supplied theoretical notes discuss a shared covariance. The portfolio describes the implemented model. The algorithm uses direct densities and a fixed iteration budget, with no variance floor or log-sum-exp stabilization. Initialization experiments are informative single runs, not guarantees of global optimization. The sample-size experiment draws fresh data at each size and does not estimate expected performance.

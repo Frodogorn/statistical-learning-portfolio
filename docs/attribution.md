@@ -16,9 +16,10 @@ The original notebooks mix supplied exercise frameworks, utility code and studen
 | Metropolis and MALA | UM4MA379 TP3 | Completed Gaussian samplers and posterior-sampling code |
 | MCMC helpers | Supplied TP6 MALA/HMC notebook | Completed target-density helpers and Metropolis function only |
 | Hamiltonian Monte Carlo | Completed copy of the supplied TP6 MALA/HMC notebook | Leapfrog integrator, HMC loop, two-dimensional MALA and the related experiments |
+| Variational inference | Completed copy of the supplied TP8 variational-inference notebook | CAVI updates, ELBO, CAVI loop, initialisation study and comparison with a Metropolis sampler |
 | Gaussian-mixture EM | Supplied TP7 Expectation Maximization notebook | Completed univariate implementation and experiments |
 
-The original UM4MA379 TP1-TP3 headers credit **A. Guyader** (course) and **M. Sangnier** (practical sessions). The TP6 and TP7 files do not provide an individual instructor attribution in their headers; none has been invented. The Air Quality instructions are acknowledged as the project brief; no instructor name was supplied with that brief.
+The original UM4MA379 TP1-TP3 headers credit **A. Guyader** (course) and **M. Sangnier** (practical sessions). The TP6, TP7 and TP8 files do not provide an individual instructor attribution in their headers; none has been invented. The Air Quality instructions are acknowledged as the project brief; no instructor name was supplied with that brief.
 
 ## Presentation changes
 
@@ -32,10 +33,11 @@ The original UM4MA379 TP1-TP3 headers credit **A. Guyader** (course) and **M. Sa
 - Air Quality narrative tables aligned with numerical cell outputs; overly strong interpretive claims qualified.
 - Inconsistent saved outputs in the posterior-sampling section omitted. The completed code remains available.
 - HMC notebook: the selected cells were re-executed unchanged, in order, in a fresh kernel on 15 October 2026, with an added `np.random.seed(0)` cell, because some original figures predated the final integrator cell. French working notes, exercise prompts and the unanswered Euler-integrator and tuning questions are not included.
+- Variational-inference notebook: the selected cells were re-executed in order, in a fresh kernel on 16 October 2026, with an added seed cell, because the original run was unseeded and not executed in order. Two leftover debugging lines and two template comments were removed. Working notes, exercise prompts and empty answer cells are not included.
 
 No new algorithms or experimental extensions were added. The figure files in `assets/` are exported from the existing notebook outputs. Source-cell hashes are recorded in `source_manifest.json`; no local filesystem paths or student identifiers are published.
 
-Course PDFs, provided corrections, unfilled exercise templates and redundant notebook copies are not republished. No variational-inference project or fully completed TP2 is claimed, and the TP6 Euler-integrator and parameter-tuning questions were not completed.
+Course PDFs, provided corrections, unfilled exercise templates and redundant notebook copies are not republished. No fully completed TP2 is claimed, and the TP6 Euler-integrator and parameter-tuning questions were not completed.
 
 ## Data and reuse
 

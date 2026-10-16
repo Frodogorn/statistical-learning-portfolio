@@ -21,6 +21,17 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def _numeric_literal(node):
+    """True for size expressions such as 5000 or 10**4, not for computed arrays."""
+    if isinstance(node, ast.Constant):
+        return isinstance(node.value, (int, float)) and not isinstance(node.value, bool)
+    if isinstance(node, ast.BinOp):
+        return _numeric_literal(node.left) and _numeric_literal(node.right)
+    if isinstance(node, ast.UnaryOp):
+        return _numeric_literal(node.operand)
+    return False
+
+
 class BoundSizes(ast.NodeTransformer):
     """Bound assignments to existing size variables for a fast execution check."""
     names = {'n', 'N', 'm', 'n_samples', 'n_obs', 'n_iter'}
@@ -32,7 +43,9 @@ class BoundSizes(ast.NodeTransformer):
 
     def visit_Assign(self, node):
         node = self.generic_visit(node)
-        if any(isinstance(t, ast.Name) and t.id in self.names for t in node.targets):
+        if any(isinstance(t, ast.Name) and t.id == 'burn' for t in node.targets):
+            node.value = ast.Constant(100)  # burn-in must stay below the bounded chain length
+        if any(isinstance(t, ast.Name) and t.id in self.names for t in node.targets) and _numeric_literal(node.value):
             node.value = ast.Call(func=ast.Name(id='min', ctx=ast.Load()), args=[node.value, ast.Constant(1000)], keywords=[])
         return node
 
